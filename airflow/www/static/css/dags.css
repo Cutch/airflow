@@ -20,7 +20,7 @@
 .dags-table-wrap {
   margin-bottom: 16px;
   border-radius: 4px 4px 0 0;
-  background-color: #f0f0f0;
+  background-color: var(--bs-body-bg);
 }
 
 .dags-table-header {

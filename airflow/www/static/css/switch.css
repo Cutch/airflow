@@ -70,7 +70,7 @@
 }
 
 .switch-input:checked + .switch {
-  background-color: #017cee;
+  background-color: var(--bs-primary);
 }
 
 .switch-input:checked + .switch::before {

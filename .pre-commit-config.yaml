@@ -612,7 +612,7 @@ repos:
           ^airflow/serialization/serialized_objects.py$|
           ^airflow/utils/db.py$|
           ^airflow/utils/trigger_rule.py$|
-          ^airflow/www/static/css/bootstrap-theme.css$|
+          ^airflow/www/static/css/theme.scss$|
           ^airflow/www/static/js/types/api-generated.ts$|
           ^airflow/www/templates/appbuilder/flash.html$|
           ^.*/.*_vendor/|

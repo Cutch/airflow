@@ -39,7 +39,7 @@
   {{ super() }}
 
   {% if not appbuilder.app_theme %}
-    {# airflowDefaultTheme.css file contains the styles from local bootstrap-theme.css #}
+    {# airflowDefaultTheme.css file contains the styles from local theme.scss #}
     <link rel="stylesheet" type="text/css" href="{{ url_for_asset('airflowDefaultTheme.css') }}">
   {% endif %}
   <link rel="stylesheet" type="text/css" href="{{ url_for_asset('materialIcons.css') }}">
@@ -52,9 +52,11 @@
         background-color: {{state_color}};
       }
     {% endfor %}
+    {% if navbar_text_color %}
     .navbar-nav > li > a {
       color: {{ navbar_text_color }};
     }
+    {% endif %}
     .navbar-nav > li > a:hover {
       background-color:  {{ navbar_hover_color }};
       color: {{ navbar_text_hover_color }};

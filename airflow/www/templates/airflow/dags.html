@@ -134,25 +134,25 @@
       <div class="form-group btn-group">
         <a
           href="{{ url_for('Airflow.index', status='all', search=request.args.get('search', None), tags=request.args.getlist('tags', None)) }}"
-          class="btn {{ 'btn-primary' if status_filter == 'all' else 'btn-default' }}"
+          class="btn {{ 'btn-primary' if status_filter == 'all' else 'btn-secondary' }}"
           title="Show active and paused DAGs">All <span class="badge">{{ "{:,}".format(status_count_all) }}</span></a>
         <a
           href="{{ url_for('Airflow.index', status='active', search=request.args.get('search', None), tags=request.args.getlist('tags', None)) }}"
-          class="btn {{ 'btn-primary' if status_filter == 'active' else 'btn-default' }}"
+          class="btn {{ 'btn-primary' if status_filter == 'active' else 'btn-secondary' }}"
           title="Show only active DAGs">Active <span class="badge">{{ "{:,}".format(status_count_active) }}</span></a>
         <a
           href="{{ url_for('Airflow.index', status='paused', search=request.args.get('search', None), tags=request.args.getlist('tags', None)) }}"
-          class="btn {{ 'btn-primary' if status_filter == 'paused' else 'btn-default' }}"
+          class="btn {{ 'btn-primary' if status_filter == 'paused' else 'btn-secondary' }}"
           title="Show only paused DAGs">Paused <span class="badge">{{ "{:,}".format(status_count_paused) }}</span></a>
       </div>
       <div class="form-group btn-group p-2">
         <a
           href="{{ url_for('Airflow.index', status='running', search=request.args.get('search', None), tags=request.args.getlist('tags', None)) }}"
-          class="btn {{ 'btn-primary' if status_filter == 'running' else 'btn-default' }}"
+          class="btn {{ 'btn-primary' if status_filter == 'running' else 'btn-secondary' }}"
           title="Show currently running DAG runs">Running <span class="badge">{{ "{:,}".format(status_count_running) }}</span></a>
         <a
           href="{{ url_for('Airflow.index', status='failed', search=request.args.get('search', None), tags=request.args.getlist('tags', None)) }}"
-          class="btn {{ 'btn-primary' if status_filter == 'failed' else 'btn-default' }}"
+          class="btn {{ 'btn-primary' if status_filter == 'failed' else 'btn-secondary' }}"
           title="Show DAGs with failed latest DAG run">Failed <span class="badge">{{ "{:,}".format(status_count_failed) }}</span></a>
       </div>
       <div style="min-width: 200px; padding: 0 10px;">
@@ -165,7 +165,7 @@
             </select>
             {% if tags_filter|length > 0 %}
               <button type="reset" aria-label="Clear all tags"
-                      class="btn btn-default btn-sm material-icons search-input__clear-btn">cancel
+                      class="btn btn-secondary btn-sm material-icons search-input__clear-btn">cancel
               </button>
             {% endif %}
           </div>
@@ -180,7 +180,7 @@
                     placeholder="Search DAGs">
             {% if search_query %}
               <button type="reset" aria-label="Clear DAG Search Term"
-                      class="btn btn-default btn-sm material-icons search-input__clear-btn">cancel
+                      class="btn btn-secondary btn-sm material-icons search-input__clear-btn">cancel
               </button>
             {% endif %}
           </div>
@@ -193,7 +193,7 @@
           <span class="switch" aria-hidden="true"></span>
           Auto-refresh
         </label>
-        <button class="btn btn-default btn-sm" id="refresh_button">
+        <button class="btn btn-secondary btn-sm" id="refresh_button">
           <span class="material-icons" aria-hidden="true">refresh</span>
         </button>
       </div>
@@ -254,7 +254,7 @@
                 <span class="switch" aria-hidden="true"></span>
               </label>
             </td>
-            <td>
+            <td style="max-width: 300px;overflow-wrap: anywhere;">
               <a href="{{ url_for('Airflow.'+ dag.get_default_view(), dag_id=dag.dag_id) }}"
                  title="{{ dag.description[0:80] + '…' if dag.description and dag.description|length > 80 else dag.description|default('', true) }}">
                 <strong>{{ dag.dag_id }}</strong>
@@ -367,7 +367,7 @@
                 {% if show_trigger_form_if_no_params %}
                 <div class="dropdown">
                     <a aria-label="Trigger DAG"
-                       class="btn btn-sm btn-default btn-icon-only{{ ' disabled' if not dag.can_trigger }} trigger-dropdown-btn"
+                       class="btn btn-sm btn-secondary btn-icon-only{{ ' disabled' if not dag.can_trigger }} trigger-dropdown-btn"
                        data-toggle="dropdown">
                       <span class="material-icons" aria-hidden="true">play_arrow</span>
                     </a>
@@ -388,14 +388,14 @@
                   <a href="{{ url_for('Airflow.trigger', dag_id=dag.dag_id, redirect_url=url_for(request.endpoint)) }}"
                   onclick="return triggerDag(this, '{{ dag.dag_id }}')" title="Trigger&nbsp;DAG"
                     aria-label="Trigger DAG"
-                    class="btn btn-sm btn-default btn-icon-only{{ ' disabled' if not dag.can_trigger }} trigger-dropdown-btn">
+                    class="btn btn-sm btn-secondary btn-icon-only{{ ' disabled' if not dag.can_trigger }} trigger-dropdown-btn">
                     <span class="material-icons" aria-hidden="true">play_arrow</span>
                   </a>
                 {% endif %}
                 <a href="{{ url_for('Airflow.delete', dag_id=dag.dag_id, redirect_url=url_for(request.endpoint)) }}"
                     onclick="return confirmDeleteDag(this, '{{ dag.dag_id }}')" title="Delete&nbsp;DAG"
                     aria-label="Delete DAG"
-                    class="btn btn-sm btn-default btn-icon-only{{ ' disabled' if not dag.can_delete }}">
+                    class="btn btn-sm btn-secondary btn-icon-only{{ ' disabled' if not dag.can_delete }}">
                     <span class="material-icons text-danger" aria-hidden="true">delete_outline</span>
                   </a>
                 {% endif %}

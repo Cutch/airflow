@@ -279,32 +279,32 @@ def generate_pages(
     """
     void_link = "javascript:void(0)"
     first_node = Markup(
-        """<li class="paginate_button {disabled}" id="dags_first">
-    <a href="{href_link}" aria-controls="dags" data-dt-idx="0" tabindex="0">&laquo;</a>
+        """<li class="page-item {disabled}" id="dags_first">
+    <a href="{href_link}" aria-controls="dags" data-dt-idx="0" tabindex="0" class="page-link">&laquo;</a>
 </li>"""
     )
 
     previous_node = Markup(
-        """<li class="paginate_button previous {disabled}" id="dags_previous">
-    <a href="{href_link}" aria-controls="dags" data-dt-idx="0" tabindex="0">&lsaquo;</a>
+        """<li class="page-item previous {disabled}" id="dags_previous">
+    <a href="{href_link}" aria-controls="dags" data-dt-idx="0" tabindex="0" class="page-link">&lsaquo;</a>
 </li>"""
     )
 
     next_node = Markup(
-        """<li class="paginate_button next {disabled}" id="dags_next">
-    <a href="{href_link}" aria-controls="dags" data-dt-idx="3" tabindex="0">&rsaquo;</a>
+        """<li class="page-item next {disabled}" id="dags_next">
+    <a href="{href_link}" aria-controls="dags" data-dt-idx="3" tabindex="0" class="page-link">&rsaquo;</a>
 </li>"""
     )
 
     last_node = Markup(
-        """<li class="paginate_button {disabled}" id="dags_last">
-    <a href="{href_link}" aria-controls="dags" data-dt-idx="3" tabindex="0">&raquo;</a>
+        """<li class="page-item {disabled}" id="dags_last">
+    <a href="{href_link}" aria-controls="dags" data-dt-idx="3" tabindex="0" class="page-link">&raquo;</a>
 </li>"""
     )
 
     page_node = Markup(
-        """<li class="paginate_button {is_active}">
-    <a href="{href_link}" aria-controls="dags" data-dt-idx="2" tabindex="0">{page_num}</a>
+        """<li class="page-item {is_active}">
+    <a href="{href_link}" aria-controls="dags" data-dt-idx="2" tabindex="0" class="page-link">{page_num}</a>
 </li>"""
     )
 

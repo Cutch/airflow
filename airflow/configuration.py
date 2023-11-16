@@ -425,7 +425,8 @@ class AirflowConfigParser(ConfigParser):
             "hostname_callable": (re2.compile(r":"), r".", "2.1"),
         },
         "webserver": {
-            "navbar_color": (re2.compile(r"(?i)\A#007A87\z"), "#fff", "2.1"),
+            "navbar_color": (re2.compile(r"(?i)\A#007A87|#fff\z"), "", "2.1"),
+            "navbar_text_color": (re2.compile(r"(?i)\A#51504f\z"), "", "2.1"),
             "dag_default_view": (re2.compile(r"^tree$"), "grid", "3.0"),
         },
         "email": {

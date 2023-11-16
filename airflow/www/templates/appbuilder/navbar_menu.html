@@ -18,14 +18,14 @@
 #}
 
 {% macro menu_item(item) %}
-  <a href="{{item.get_url()}}">{{_(item.label)}}</a>
+  <a href="{{item.get_url()}}" class="nav-link">{{_(item.label)}}</a>
 {% endmacro %}
 
 {% for item1 in auth_manager.filter_permitted_menu_items(menu.get_list()) %}
   {% if item1 %}
     {% if item1.childs %}
-      <li class="dropdown">
-        <a class="dropdown-toggle" href="javascript:void(0)">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)">
           {{_(item1.label)}}<b class="caret"></b></a>
         <ul class="dropdown-menu">
           {% for item2 in item1.childs %}
@@ -35,14 +35,14 @@
                   <li class="divider"></li>
                 {% endif %}
               {% elif item2 %}
-                <li>{{ menu_item(item2) }}</li>
+                <li class="dropdown-item">{{ menu_item(item2) }}</li>
               {% endif %}
             {% endif %}
           {% endfor %}
         </ul>
       </li>
     {% else %}
-      <li>{{ menu_item(item1) }}</li>
+      <li class="nav-item">{{ menu_item(item1) }}</li>
     {% endif %}
   {% endif %}
 {% endfor %}

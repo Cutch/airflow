@@ -22,16 +22,16 @@
   {% if not locale %}
       {% set locale = 'en' %}
   {% endif %}
-  <li class="dropdown">
-    <a class="dropdown-toggle" href="javascript:void(0)">
+  <li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" href="javascript:void(0)">
        <div class="f16"><i class="flag {{languages[locale].get('flag')}}"></i><b class="caret"></b></div>
     </a>
     {% if languages.keys()|length > 1 %}
-      <ul class="dropdown-menu">
-        <li class="dropdown">
+      <ul class="navbar-nav me-auto dropdown-menu">
+        <li class="nav-item dropdown">
           {% for lang in languages %}
             {% if lang != locale %}
-              <a href="{{appbuilder.get_url_for_locale(lang)}}">
+              <a href="{{appbuilder.get_url_for_locale(lang)}}" class="dropdown-item">
                 <div class="f16"><i class="flag {{languages[lang].get('flag')}}"></i> - {{languages[lang].get('name')}}
               </div></a>
             {% endif %}
@@ -43,18 +43,18 @@
 {% endmacro %}
 
 {# clock and timezone menu #}
-<li class="dropdown" id="timezone-dropdown">
-  <a class="dropdown-toggle" style="display:none" href="#">
+<li class="dropdown nav-item" id="timezone-dropdown">
+  <a class="dropdown-toggle nav-link" style="display:none" href="#">
     <time id="clock" class="js-tooltip"></time>
     <b class="caret"></b>
   </a>
   <ul class="dropdown-menu" id="timezone-menu">
-    <li id="timezone-utc"><a data-timezone="UTC" href="#">UTC</a></li>
-    <li id="timezone-server" style="display: none;"><a data-timezone="{{ server_timezone }}" href="#">{{ server_timezone }}</a></li>
-    <li id="timezone-local"><a href="#">Local</a></li>
-    <li id="timezone-manual" style="display: none"><a data-timezone="" href="#"></a></li>
+    <li id="timezone-utc" class="dropdown-item"><a data-timezone="UTC" href="#">UTC</a></li>
+    <li id="timezone-server" style="display: none;" class="dropdown-item"><a data-timezone="{{ server_timezone }}" href="#">{{ server_timezone }}</a></li>
+    <li id="timezone-local" class="dropdown-item"><a href="#">Local</a></li>
+    <li id="timezone-manual" style="display: none" class="dropdown-item"><a data-timezone="" href="#"></a></li>
     <li role="separator" class="divider"></li>
-    <li>
+    <li class="dropdown-item">
       <form>
         <label for="timezone-other">Other</label>
         <input id="timezone-other" placeholder="Select Timezone name" autocomplete="off" tabindex="-1">
@@ -64,8 +64,8 @@
 </li>
 
 {% if auth_manager.is_logged_in() %}
-  <li class="dropdown">
-    <a class="dropdown-toggle" href="#">
+  <li class="dropdown nav-item">
+    <a class="dropdown-toggle nav-link" href="#">
        <span class="navbar-user-icon" title="{{ auth_manager.get_user_display_name() }}">
          {% set user_display_name = auth_manager.get_user_display_name() %}
          {% if user_display_name %}
@@ -80,14 +80,14 @@
     <ul class="dropdown-menu">
       {% set user_profile_url = auth_manager.get_url_user_profile() %}
       {% if user_profile_url %}
-        <li><a href="{{user_profile_url}}"><span class="material-icons">account_circle</span>{{_("Your Profile")}}</a></li>
+        <li class="dropdown-item"><a href="{{user_profile_url}}"><span class="material-icons">account_circle</span>{{_("Your Profile")}}</a></li>
         <li role="separator" class="divider"></li>
       {% endif %}
-      <li><a href="{{auth_manager.get_url_logout()}}"><span class="material-icons">exit_to_app</span>{{_("Log Out")}}</a></li>
+      <li class="dropdown-item"><a href="{{auth_manager.get_url_logout()}}"><span class="material-icons">exit_to_app</span>{{_("Log Out")}}</a></li>
     </ul>
   </li>
 {% else %}
-  <li>
-    <a href="{{auth_manager.get_url_login()}}"><span class="material-icons">login</span>{{_("Log In")}}</a>
+  <li class="nav-item">
+    <a href="{{auth_manager.get_url_login()}}" class="nav-link"><span class="material-icons">login</span>{{_("Log In")}}</a>
   </li>
 {% endif %}

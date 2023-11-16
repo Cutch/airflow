@@ -1,0 +1,78 @@
+
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: $gray-700;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+
+  &-default {
+    background-color: $gray-200;
+  }
+  &-default[href]:hover,
+  &-default[href]:focus {
+    background-color: $gray-300;
+  }
+  &-primary {
+    color: $teal-800;
+    background-color: $teal-300;
+  }
+  &-primary[href]:hover,
+  &-primary[href]:focus {
+    color: $teal-800;
+    background-color: $teal;
+  }
+  &-success {
+    color: $green-800;
+    background-color: $green-300;
+  }
+  &-success[href]:hover,
+  &-success[href]:focus {
+    color: $green-800;
+    background-color: $green;
+  }
+  &-info {
+    color: $teal-800;
+    background-color: $teal-300;
+  }
+  &-info[href]:hover,
+  &-info[href]:focus {
+    color: $teal-800;
+    background-color: $teal;
+  }
+  &-warning {
+    background-color: $orange-300;
+  }
+  &-warning[href]:hover,
+  &-warning[href]:focus {
+    background-color: $orange;
+  }
+  &-danger {
+    color: $red-800;
+    background-color: $red;
+  }
+  &-danger[href]:hover,
+  &-danger[href]:focus {
+    color: $red-800;
+    background-color: $red-400;
+  }
+  &:empty {
+    display: none;
+  }
+}
+a.label:hover,
+a.label:focus {
+  color: $gray-700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.label
+.btn .label {
+  position: relative;
+  top: -1px;
+}

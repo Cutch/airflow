@@ -29,7 +29,7 @@ svg {
 }
 
 .node rect[data-highlight="highlight"] {
-  stroke: #017cee !important;
+  stroke: var(--bs-primary) !important;
 }
 
 .edgeLabel {
@@ -63,7 +63,7 @@ svg {
 }
 
 .edgePath[data-highlight="highlight"] {
-  stroke: #017cee;
+  stroke: var(--bs-primary);
 }
 
 .edgePath .arrowhead {
@@ -74,8 +74,8 @@ svg {
 }
 
 .edgePath[data-highlight="highlight"] .arrowhead {
-  stroke: #017cee;
-  fill: #017cee;
+  stroke: var(--bs-primary);
+  fill: var(--bs-primary);
 }
 
 .not-allowed rect,
@@ -143,7 +143,7 @@ g.node text {
   margin-top: 10px;
   margin-bottom: 15px;
   position: absolute;
-  background-color: #f0f0f0ee; /* the last two chars apply an opacity to the background color */
+  background-color: var(--bs-tertiary-bg); /* the last two chars apply an opacity to the background color */
 }
 
 .legend-item.dag {
